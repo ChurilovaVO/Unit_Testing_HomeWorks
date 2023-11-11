@@ -47,12 +47,36 @@ public class Calculator {
         // или просто return Math.sqrt(number);
     }
 
+    //Задание 1
     /**
      * @param purchaseAmount сумма покупки
      * @param discountAmount размер скидки
      * @return возвращает сумму покупки с учетом скидки
      */
     public static double calculatingDiscount(double purchaseAmount, int discountAmount) {
-        return 0;
-    }
+        double resultSum;
+        if (purchaseAmount > 0) {
+            if (0 < discountAmount && discountAmount < 100) {
+                resultSum = purchaseAmount - (purchaseAmount * discountAmount / 100);
+                return resultSum;
+            }
+            if (discountAmount == 0) {
+                throw new ArithmeticException("Размер скидки равен 0!");
+            }
+            if (discountAmount < 0) {
+                throw new ArithmeticException("Размер скидки имеет отрицательное значение!");
+            }
+            if (discountAmount == 100) {
+                throw new ArithmeticException("Размер скидки равен 100 процентов!");
+            } else {
+                throw new ArithmeticException("Размер скидки больше 100 процентов!");
+            }
+        }
+        if (purchaseAmount == 0) {
+            throw new ArithmeticException("Сумма покупки равна 0!");
+        }
+        else {
+            throw new ArithmeticException("Сумма покупки меньше 0!");
+        }
+}
 }
